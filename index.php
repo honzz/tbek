@@ -24,7 +24,7 @@ require_once 'models/userTransaction.php';
 define("PRJ_PATH",__DIR__);
 
 
-//asdf
+
 
 
 $site = new Main();
