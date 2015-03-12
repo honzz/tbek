@@ -11,25 +11,36 @@
 //die();
 
 
+$start_time = MICROTIME(TRUE);
+
 
 require_once 'models/system/DB.php';
-require_once 'models/system/render.php';
+require_once 'models/system/re.php';
 require_once 'models/einkauf.php';
+require_once 'models/main.php';
 require_once 'models/user.php';
 require_once 'models/userTransaction.php';
 
-define("PRJ_PATH", "./");
+define("PRJ_PATH",__DIR__);
 
 
 
-$allPersons = person::getAllPerson();
 
-foreach ($allPersons as $person){
-    
-    echo $person->render();
-    
-}
 
+$site = new Main();
+echo $site->output;
+
+
+
+
+
+
+
+
+
+$stop_time = MICROTIME(TRUE);
+$time = $stop_time - $start_time;
+echo "<br /><br />Runtime $time seconds.";
 
 
 

@@ -11,7 +11,7 @@
  *
  * @author Administrator
  */
-class person {
+class User {
     
     public $ID;
     public $name;
@@ -19,7 +19,7 @@ class person {
     public $email;
     public $img;
     
-    private $template = "user.inc.php";
+    public $template = "user.inc.tpl.php";
     
     public static function getPerson($id){
         
@@ -46,22 +46,10 @@ class person {
         
         $query = DB::getDB()->prepare(' SELECT id, name, aka, email, img FROM user');
         $query->execute();
-        
-        $result = $query->fetchAll(PDO::FETCH_CLASS, "person");
-        
+        $result = $query->fetchAll(PDO::FETCH_CLASS, "User");
         
         return $result;
     }
 
-    
-    
-    function render() {
-        
-        ob_start();
-        include PRJ_PATH . "/views/" .$this->template;
-        $renderedView = ob_get_clean();
-
-        return $renderedView;
-    }
     
 }
