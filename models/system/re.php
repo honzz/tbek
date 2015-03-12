@@ -17,9 +17,7 @@ class re {
         
         $result = "";
         
-        
-        
-        
+
         if(is_array($data)){
 
             foreach ($data as $obj){
@@ -32,9 +30,7 @@ class re {
             $result .= re::renderObj($data);
         
         }
-        
-         
-        
+
         return $result;
     }
     
